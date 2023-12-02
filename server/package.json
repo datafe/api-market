@@ -1,0 +1,24 @@
+{
+  "name": "dataservice-example-server",
+  "version": "1.0.0",
+  "description": "sample js",
+  "private": true,
+  "main": "/pages/index.html",
+  "scripts": {
+    "start": "node index.js "
+  },
+  "dependencies": {
+    "@alicloud/cloudapi20160714": "^2.2.18",
+    "@alicloud/openapi-client": "^0.4.6",
+    "@alicloud/tea-typescript": "^1.8.0",
+    "@alicloud/tea-util": "^1.4.7",
+    "express": "4.17.1",
+    "path": "^0.12.7",
+    "uuid": "9.0.1"
+  },
+  "author": "Samuel Hsin",
+  "license": "(MIT OR Apache-2.0)",
+  "engines": {
+    "node": ">=16.16.0"
+  }
+}
