@@ -1,0 +1,17 @@
+{
+  "name": "dataservice-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "install-server": "cd server && yarn install",
+    "build-client": "cd client && yarn install && yarn run build"
+  },
+  "keywords": [
+    "dataservice",
+    "API"
+  ],
+  "author": "Samuel Hsin",
+  "license": "(MIT OR Apache-2.0)"
+}
