@@ -1,3 +1,9 @@
+## Intro (Chinese)
+看了一些API的管理平台如API Layer、boomi、Odoo等平台，思考如果自己动手搭建一个API授权平台是否困难，结果透过网上的资源只花了一天就搭建起一个简易且可扩展API授权平台，现在云端平台资源那么丰富，且大部份依赖的功能都可免费体验，跟大家分享一下这次搭建的代码跟使用到的工具，希望想要在公司内部建立自用的API授权平台能很快地实现。
+
+## Intro
+Building an API market, like API Layer,boomi, Odoo etc, is easy by using available cloud resources and tools. This project is a simple and extensible API authorization platform, which can be used by any company to build their own API authorization platform.
+
 ## Guideline
 
 Using guideline and code structure information 
@@ -16,7 +22,7 @@ yarn install-server
 
 ## Run Server
 
-Please change AK info in ./server/OpenApiClient.js line 20-23
+Please change AK info in ./server/OpenApiClient.js line 20-23 ([AK Info](https://ram.console.aliyun.com/manage/ak))
 
 web resources locate in ./client/dist
 
@@ -29,7 +35,7 @@ open http://localhost:3001
 
 ### Register Page
 
-Register a new account and can see in API gateway management page.
+Register a new account and can see in API gateway management page ([link](https://apigateway.console.aliyun.com/#/cn-shanghai/apps/list)).
 
 ![image](https://ucc.alicdn.com/pic/developer-ecology/ahad7yzn7h66m_4cf82f77822744aaa6c982580a3ab32e.png)
 
