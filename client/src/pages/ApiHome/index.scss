@@ -1,0 +1,59 @@
+.loading {
+  margin: 0 auto;
+  width: 100%;
+  height: 500px;
+  text-align: center;
+  font-size: 32px;
+  margin-top: 48px;
+}
+
+
+.api-home {
+  width: calc(100vw - 32px);
+  height: calc(100vh - 24px);
+
+  .home-header {
+    display: flex;
+    height: 60px;
+
+    .welcome {
+      flex-grow: 1;
+      font-weight: 600;
+      height: 60px;
+      line-height: 60px;
+    }
+
+    .operator {
+      flex-grow: 0;
+      width: 200px;
+      height: 60px;
+      line-height: 60px;
+      display: flex;
+      justify-content: end;
+
+      .ant-btn {
+        margin-left: 8px;
+
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  .api-tabs {
+    width: 100%;
+    height: calc(100vh - 88px);
+
+    .ant-tabs-tabpane {
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+    }
+  }
+
+  .not-valid-user {
+    width: 100%;
+    height: 100%;
+  }
+}
