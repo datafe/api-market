@@ -13,7 +13,7 @@ https://developer.aliyun.com/article/1385779
 
 1. Register an Alibaba cloud account [link](https://account.aliyun.com/register/qr_register.htm)
 2. Applying an current unlimited-free-trial version of DataWorks [link](https://www.aliyun.com/product/bigdata/ide)
-3. Goto Developing an API in DataWorks DataService (registering APIs is free) [link](https://ds-cn-shanghai.data.aliyun.com/)
+3. Goto develope an API in DataWorks DataService (registering APIs is free) [link](https://ds-cn-shanghai.data.aliyun.com/)
 4. Preparing a linux server or subscribing an Linux server in Alibaba cloud [link](https://help.aliyun.com/zh/ecs/use-cases/deploy-a-node-js-environment-on-a-centos-7-instance)
 
 
