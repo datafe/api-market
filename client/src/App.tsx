@@ -1,5 +1,6 @@
 
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
+import useIntl from './utils/useIntl';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import './App.scss';
@@ -10,7 +11,14 @@ const ApiHome = React.lazy(() => import('./pages/ApiHome' /* webpackChunkName:"a
 const NoPage = React.lazy(() => import('./pages/NoPage' /* webpackChunkName:"no-page" */));
 
 const App = () => {
-  return (
+
+  const [initDone, setInitDone] = useState(false);
+
+  useEffect(() => {
+    if (!initDone) setInitDone(true);
+  }, [useIntl()]);
+
+  return !initDone ? <div /> : (
     <Suspense fallback={<div />}>
       <BrowserRouter>
         <Routes>
