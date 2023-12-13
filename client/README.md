@@ -18,6 +18,13 @@ yarn start
 
 open http://localhost:3000
 
+### i18n
+
+extract i18n messages from code
+
+```bash
+yarn intl:extract
+```
 
 ## Product
 
