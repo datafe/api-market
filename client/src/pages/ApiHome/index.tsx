@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ApiList from './ApiList';
 import AuthorizedApiList from './AuthorizedApiList';
 import AuthorizedInfo from './AuthorizedInfo';
+import intl from 'react-intl-universal';
 import { Tabs, Button } from 'antd';
 import { SiteUser } from '../../typings';
 
@@ -68,37 +69,37 @@ const ApiHome: React.FC<IProps> = () => {
 
   const tabItems = [
     {
-      label: 'API Market',
+      label: intl.get('product_name').d('API Market'),
       key: 'apiList',
       children: user ? <ApiList siteUser={user} /> : <div />,
     },
     {
-      label: 'Authorized APIs',
+      label: intl.get('authorized_apis').d('Authorized APIs'),
       key: 'authorizedApis',
       children: user ? <AuthorizedApiList siteUser={user} /> : <div />,
     },
     {
-      label: 'Authorized Info',
+      label: intl.get('authorized_info').d('Authorized Info'),
       key: 'authorizedInfo',
       children: user ? <AuthorizedInfo siteUser={user} /> : <div />,
     },
   ];
 
-  return loading ? <div className="loading" >Loading...</div> : (
+  return loading ? <div className="loading" >{intl.get('loading').d('Loading')}...</div> : (
     <div className="api-home">
       <div className="home-header">
-        <div className="welcome">{`Hi, ${user?.appName || 'user'}`}</div>
+        <div className="welcome">{`${intl.get('hi').d('Hi')}, ${user?.appName || 'user'}`}</div>
         <div className="operator">
-          <Button onClick={() => onLogout()}>Logout</Button>
+          <Button onClick={() => onLogout()}>{intl.get('logout').d('Logout')}</Button>
           {/* 
             <Popconfirm
-              title="Unregister"
-              description="Are you sure to unregister this account?"
+              title={intl.get('unregister').d('Unregister')}
+              description={intl.get('unregister_tip').d('Are you sure to unregister this account?')}
               onConfirm={() => onUnregister()}
-              okText="Yes"
-              cancelText="No"
+              okText={intl.get('yes').d('Yes')}
+              cancelText={intl.get('no').d('No')}
             >
-              <Button danger>Unregister</Button>
+              <Button danger>{intl.get('unregister').d('Unregister')}</Button>
             </Popconfirm> 
           */}
         </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ApiDetails from '../ApiDetails';
 import delay from 'lodash/delay';
+import intl from 'react-intl-universal';
 import { getSessionId } from '../../../utils/utils';
 import { Table, TablePaginationConfig, Button, Drawer, Popconfirm, message, Input } from 'antd';
 import { Api, Group, SiteUser } from '../../../typings';
@@ -100,7 +101,7 @@ const AuthorizedApiList: React.FC<IProps> = (props) => {
     if (result?.success) {
       delay(() => {
         queryApiList();
-        message.success('Removed successfully');
+        message.success(intl.get('remove_success').d('Removed successfully'));
       }, 1000);
     } else {
       message.error(result?.data);
@@ -110,33 +111,33 @@ const AuthorizedApiList: React.FC<IProps> = (props) => {
 
   const columns = [
     {
-      title: 'Region',
+      title: intl.get('region').d('Region'),
       dataIndex: 'regionId',
       key: 'regionId',
     },
     {
-      title: 'API ID',
+      title: intl.get('api_id').d('API ID'),
       dataIndex: 'apiId',
       key: 'apiId',
     },
     {
-      title: 'Name',
+      title: intl.get('name').d('Name'),
       dataIndex: 'apiName',
       key: 'apiName',
     },
     {
-      title: 'Description',
+      title: intl.get('description').d('Description'),
       dataIndex: 'description',
       key: 'description',
     },
     {
-      title: 'Method',
+      title: intl.get('method').d('Method'),
       dataIndex: 'method',
       key: 'method',
       width: 100,
     },
     {
-      title: 'Full Path',
+      title: intl.get('full_path').d('Full Path'),
       dataIndex: 'path',
       key: 'fullPath',
       render: (apiPath: string, row: Api) => {
@@ -150,27 +151,27 @@ const AuthorizedApiList: React.FC<IProps> = (props) => {
       }
     },
     {
-      title: 'Operator',
+      title: intl.get('operation').d('Operation'),
       dataIndex: 'apiId',
-      key: 'operator',
+      key: 'operation',
       render: (_apiId: string, row: Api) => {
         return (
           <div className="operator-btn">
 
             <Popconfirm
-              title="Remove Authorities"
-              description="Are you sure to remove authorities?"
+              title={intl.get('remove_authorities').d('Remove Authorities')}
+              description={intl.get('remove_authorities_des').d('Are you sure to remove authorities?')}
               onConfirm={() => onRemoveApiAuthorities(row)}
-              okText="Yes"
-              cancelText="No"
+              okText={intl.get('yes').d('Yes')}
+              cancelText={intl.get('no').d('No')}
             >
-              <Button>Remove</Button>
+              <Button>{intl.get('remove').d('Remove')}</Button>
             </Popconfirm>
 
             <Button onClick={() => {
               const group = groupList?.find(group => group.groupId === row?.groupId);
               setSelectedApi({ api: row, group });
-            }}>Details</Button>
+            }}>{intl.get('details').d('Details')}</Button>
           </div>
         );
       }
@@ -187,7 +188,7 @@ const AuthorizedApiList: React.FC<IProps> = (props) => {
       <div className="toolbar">
         <div className="table-filter">
           <div className="search-api-name-input">
-            <div className="label-name">Api Name</div>
+            <div className="label-name">{intl.get('api_name').d('API Name')}</div>
             <Input onChange={(e: { target: { value: string } }) => setSearchApiName(e?.target?.value)} value={searchApiName} />
           </div>
         </div>

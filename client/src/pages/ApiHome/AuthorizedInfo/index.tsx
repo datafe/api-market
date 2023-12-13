@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import delay from 'lodash/delay';
+import intl from 'react-intl-universal';
 import { Button, message } from 'antd';
 import { getSessionId } from '../../../utils/utils';
 import { AppSecurity, SiteUser } from '../../../typings';
@@ -53,8 +54,8 @@ const AuthorizedInfo: React.FC<IProps> = (props) => {
 
     const result = await res.json();
 
-    if (result?.success) message.success('Reset Success');
-    else message.error('Reset Failed');
+    if (result?.success) message.success(intl.get('reset_success').d('Reset Success'));
+    else message.error(intl.get('reset_failed').d('Reset Failed'));
 
     setResettingAppCode(false);
 
@@ -80,8 +81,8 @@ const AuthorizedInfo: React.FC<IProps> = (props) => {
 
     const result = await res.json();
 
-    if (result?.success) message.success('Reset Success');
-    else message.error('Reset Failed');
+    if (result?.success) message.success(intl.get('reset_success').d('Reset Success'));
+    else message.error(intl.get('reset_failed').d('Reset Failed'));
 
     setResettingAppSecret(false);
 
@@ -92,41 +93,41 @@ const AuthorizedInfo: React.FC<IProps> = (props) => {
   return (
     <div className="authorized-info-page">
       <div className="kv">
-        <div className="label">APP Code</div>
+        <div className="label">{intl.get('app_code').d('APP Code')}</div>
         <div className="value">
           <span className="text-wrapper">{security?.appCode}</span>
-          <Button className="reset-btn" size="small" loading={resettingAppCode} onClick={() => onResetAppCode()}>Reset</Button>
+          <Button className="reset-btn" size="small" loading={resettingAppCode} onClick={() => onResetAppCode()}>{intl.get('reset').d('Reset')}</Button>
         </div>
       </div>
       <div className="kv">
-        <div className="label">APP Key</div>
+        <div className="label">{intl.get('app_key').d('APP Key')}</div>
         <div className="value">{security?.appKey}</div>
       </div>
       <div className="kv">
-        <div className="label">APP Secret</div>
+        <div className="label">{intl.get('app_secret').d('APP Secret')}</div>
         <div className="value">
           {showAppSecret ?
             <span className="text-wrapper">
               <span>{security?.appSecret}</span>
-              <Button className="hide-secret-btn" size="small" onClick={() => setShowAppSecret(false)}>Hide</Button>
+              <Button className="hide-secret-btn" size="small" onClick={() => setShowAppSecret(false)}>{intl.get('hide').d('Hide')}</Button>
             </span> :
             <span className="text-wrapper">
-              <span className="show-secret-span" onClick={() => setShowAppSecret(true)}>Click to Show</span>
+              <span className="show-secret-span" onClick={() => setShowAppSecret(true)}>{intl.get('click_to_show').d('Click to Show')}</span>
             </span>
           }
-          <Button className="reset-btn" size="small" loading={resettingAppSecret} onClick={() => onResetAppSecret()}>Reset</Button>
+          <Button className="reset-btn" size="small" loading={resettingAppSecret} onClick={() => onResetAppSecret()}>{intl.get('reset').d('Reset')}</Button>
         </div>
       </div>
       <div className="kv">
-        <div className="label">Created Time</div>
+        <div className="label">{intl.get('created_time').d('Created Time')}</div>
         <div className="value">{security?.createdTime}</div>
       </div>
       <div className="kv">
-        <div className="label">Modified Time</div>
+        <div className="label">{intl.get('modified_time').d('Modified Time')}</div>
         <div className="value">{security?.modifiedTime}</div>
       </div>
       <div className="toolbar">
-        <Button shape="round" onClick={() => querySecurity()}>Refresh</Button>
+        <Button shape="round" onClick={() => querySecurity()}>{intl.get('refresh').d('Refresh')}</Button>
       </div>
     </div>
   );

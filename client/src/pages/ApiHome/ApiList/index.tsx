@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ApiDetails from '../ApiDetails';
+import intl from 'react-intl-universal';
 import { Table, Input, Select, TablePaginationConfig, Button, Drawer, Popconfirm, message } from 'antd';
 import { SyncOutlined } from '@ant-design/icons';
 import { getSessionId } from '../../../utils/utils';
@@ -76,7 +77,7 @@ const ApiList: React.FC<IProps> = () => {
 
     const result = await res.json();
     if (result?.success) {
-      message.success('Applied successfully');
+      message.success(intl.get('applied_success').d('Applied successfully'));
     } else {
       message.error(result?.data);
     }
@@ -93,28 +94,28 @@ const ApiList: React.FC<IProps> = () => {
 
   const columns = [
     {
-      title: 'API ID',
+      title: intl.get('api_id').d('API ID'),
       dataIndex: 'apiId',
       key: 'apiId',
     },
     {
-      title: 'Name',
+      title: intl.get('name').d('Name'),
       dataIndex: 'apiName',
       key: 'apiName',
     },
     {
-      title: 'Description',
+      title: intl.get('description').d('Description'),
       dataIndex: 'description',
       key: 'description',
     },
     {
-      title: 'Method',
+      title: intl.get('method').d('Method'),
       dataIndex: 'apiMethod',
       key: 'apiMethod',
       width: 100,
     },
     {
-      title: 'Full Path',
+      title: intl.get('full_path').d('Full Path'),
       dataIndex: 'apiPath',
       key: 'fullPath',
       render: (apiPath: string, row: Api) => {
@@ -128,25 +129,25 @@ const ApiList: React.FC<IProps> = () => {
       }
     },
     {
-      title: 'Operator',
+      title: intl.get('operation').d('Operation'),
       dataIndex: 'apiId',
-      key: 'operator',
+      key: 'operation',
       render: (_apiId: string, row: Api) => {
         return (
           <div className="operator-btn">
             <Popconfirm
-              title="Apply Authorities"
-              description="Are you sure to apply authorities?"
+              title={intl.get('apply_authorities').d('Apply Authorities')}
+              description={intl.get('apply_authorities_des').d('Are you sure to apply authorities?')}
               onConfirm={() => onApplyApiAuthorities(row)}
-              okText="Yes"
-              cancelText="No"
+              okText={intl.get('yes').d('Yes')}
+              cancelText={intl.get('no').d('No')}
             >
-              <Button>Apply</Button>
+              <Button>{intl.get('apply').d('Apply')}</Button>
             </Popconfirm>
             <Button onClick={() => {
               const group = groupList?.find(group => group.groupId === row?.groupId);
               setSelectedApi({ api: row, group });
-            }}>Details</Button>
+            }}>{intl.get('details').d('Details')}</Button>
           </div>
         );
       }
@@ -167,23 +168,23 @@ const ApiList: React.FC<IProps> = () => {
       <div className="toolbar">
         <div className="table-filter">
           <div className="region-selector">
-            <div className="label-name">Region</div>
+            <div className="label-name">{intl.get('region').d('Region')}</div>
             <Select
               defaultValue="cn-shanghai"
               style={{ width: 120 }}
               onChange={onRegionChange}
               options={[
-                { value: 'cn-shanghai', label: 'Shanghai' },
-                { value: 'cn-beijing', label: 'Beijing' },
-                { value: 'cn-hangzhou', label: 'Hangzhou' },
-                { value: 'cn-shenzhen', label: 'Shenzhen' },
-                { value: 'cn-hongkong', label: 'Hong Kong' },
-                { value: 'ap-southeast-1', label: 'Singapore' },
+                { value: 'cn-shanghai', label: intl.get('shanghai').d('Shanghai') },
+                { value: 'cn-beijing', label: intl.get('beijing').d('Beijing') },
+                { value: 'cn-hangzhou', label: intl.get('hangzhou').d('Hangzhou') },
+                { value: 'cn-shenzhen', label: intl.get('shenzhen').d('Shenzhen') },
+                { value: 'cn-hongkong', label: intl.get('hongkong').d('Hong Kong') },
+                { value: 'ap-southeast-1', label: intl.get('singapore').d('Singapore') },
               ]}
             />
           </div>
           <div className="search-api-name-input">
-            <div className="label-name">Api Name</div>
+            <div className="label-name">{intl.get('api_name').d('API Name')}</div>
             <Input onChange={(e: { target: { value: string } }) => setSearchApiName(e?.target?.value)} value={searchApiName} />
           </div>
         </div>
