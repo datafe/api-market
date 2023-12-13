@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import intl from 'react-intl-universal';
 import { message, Input, Button } from 'antd';
 
 import './index.scss';
@@ -28,7 +29,7 @@ const LoginPage: React.FC<IProps> = () => {
   const handleSubmit = async () => {
 
     if (!username || !pass) {
-      message.warning('Please input username and pass');
+      message.warning(intl.get('pls_input_username_and_pass').d('Please input username and pass'));
       return;
     }
 
@@ -61,14 +62,14 @@ const LoginPage: React.FC<IProps> = () => {
     <div className="login-page">
       <div className="header">
         <div className="logo" />
-        <div className="title">API Market</div>
+        <div className="title">{intl.get('product_name').d('API Market')}</div>
       </div>
       <div className="form">
         <div className="kv">
-          <div className="label">Username</div>
+          <div className="label">{intl.get('username').d('Username')}</div>
           <Input
             type="text"
-            placeholder="Username"
+            placeholder={intl.get('username').d('Username')}
             value={username}
             disabled={logging}
             onChange={handleUsernameChange}
@@ -76,19 +77,19 @@ const LoginPage: React.FC<IProps> = () => {
           />
         </div>
         <div className="kv">
-          <div className="label">Pass</div>
+          <div className="label">{intl.get('pass').d('Pass')}</div>
           <Input
             type="password"
-            placeholder="Pass"
+            placeholder={intl.get('pass').d('Pass')}
             value={pass}
             disabled={logging}
             onChange={handlePassChange}
             onPressEnter={() => handleSubmit()}
           />
         </div>
-        <div className="operator">
-          <Button onClick={() => handleSubmit()} loading={logging}>Log In</Button>
-          <Button onClick={() => gotoRegister()} disabled={logging}>Go to Register</Button>
+        <div className="operation">
+          <Button onClick={() => handleSubmit()} loading={logging}>{intl.get('log_in').d('Log In')}</Button>
+          <Button onClick={() => gotoRegister()} disabled={logging}>{intl.get('go_register').d('Go Register')}</Button>
         </div>
       </div>
     </div>

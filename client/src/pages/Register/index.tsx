@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import intl from 'react-intl-universal';
 import { Input, Button, message } from 'antd';
 
 import './index.scss';
@@ -19,7 +20,7 @@ const Register: React.FC<IProps> = () => {
   const handleSubmit = async () => {
 
     if (!username) {
-      message.warning('Please input username');
+      message.warning(intl.get('pls_input_username').d('Please input username'));
       return;
     }
 
@@ -37,7 +38,7 @@ const Register: React.FC<IProps> = () => {
     const result = await res.json();
 
     if (result?.success) {
-      message.success('Register Success');
+      message.success(intl.get('register_success').d('Register Success'));
       setTimeout(() => {
         window.open('/login', '_self');
       }, 2000);
@@ -55,23 +56,23 @@ const Register: React.FC<IProps> = () => {
     <div className="register-page">
       <div className="header">
         <div className="logo" />
-        <div className="title">Register</div>
+        <div className="title">{intl.get('register').d('Register')}</div>
       </div>
       <div className="form">
         <div className="kv">
-          <div className="label">Username</div>
+          <div className="label">{intl.get('username').d('Username')}</div>
           <Input
             type="text"
-            placeholder="Username"
+            placeholder={intl.get('username').d('Username')}
             value={username}
             disabled={registering}
             onChange={handleUsernameChange}
             onPressEnter={() => handleSubmit()}
           />
         </div>
-        <div className="operator">
-          <Button onClick={() => handleSubmit()} loading={registering}>Register</Button>
-          <Button onClick={() => gotoLogin()} disabled={registering}>Go to Login</Button>
+        <div className="operation">
+          <Button onClick={() => handleSubmit()} loading={registering}>{intl.get('register').d('Register')}</Button>
+          <Button onClick={() => gotoLogin()} disabled={registering}>{intl.get('go_login').d('Go Login')}</Button>
         </div>
       </div>
     </div>
