@@ -1,6 +1,12 @@
 ## Intro (Chinese)
 看了一些API的管理平台如API Layer、boomi、Odoo等平台，思考如果自己动手搭建一个API授权平台是否困难，结果透过网上的资源就能搭建起一个简易且可扩展API授权平台，且大部份依赖的功能都可免费体验，分享这次搭建的代码跟使用到的工具，希望想要在公司内部建立自用的API授权平台能很快地实现。
 
+## Usage Documents
+
+[知乎](https://zhuanlan.zhihu.com/p/669344941)
+[掘金](https://juejin.cn/post/7307889500545695763)
+[medium](https://medium.com/@caramels/%E4%BB%8E0%E5%88%B01%E8%87%AA%E5%BB%BA%E5%86%85%E9%83%A8%E4%BD%BF%E7%94%A8%E7%9A%84api%E6%8E%88%E6%9D%83%E5%B9%B3%E5%8F%B0%E7%AB%9F%E7%84%B6%E9%82%A3%E4%B9%88%E5%AE%B9%E6%98%93-5f366341646c)
+
 ## Demo
 [Video Link](https://www.bilibili.com/video/BV1Ut4y1f7dd/?vd_source=e5f15f140b5eaa6088d50d7432c838c9)
 
