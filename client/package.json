@@ -36,7 +36,7 @@
     "typescript": "^5.2.2",
     "vite": "4.4.9"
   },
-  "author": "Samuel Hsin",
+  "author": "Samuel Hsin <caramels@gmail.com> (https://github.com/datafe)",
   "license": "(MIT OR Apache-2.0)",
   "engines": {
     "node": ">=16.16.0"
