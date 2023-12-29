@@ -16,7 +16,7 @@
     "path": "^0.12.7",
     "uuid": "9.0.1"
   },
-  "author": "Samuel Hsin",
+  "author": "Samuel Hsin <caramels@gmail.com> (https://github.com/datafe)",
   "license": "(MIT OR Apache-2.0)",
   "engines": {
     "node": ">=16.16.0"
