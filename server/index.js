@@ -353,6 +353,6 @@ https
     app
   )
   .listen(3001, () => {
-    console.log('serever is running at port 3001');
+    console.log('server is running at port 3001');
   });
 
