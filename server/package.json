@@ -5,7 +5,14 @@
   "private": true,
   "main": "/pages/index.html",
   "scripts": {
-    "start": "node index.js "
+    "start": "node index.js ",
+    "pm2-start": "pm2 start index.js",
+    "pm2-start-max": "pm2 start index.js -i max",
+    "pm2-stop": "pm2 stop index.js",
+    "pm2-stop-all": "pm2 stop all",
+    "pm2-restart": "pm2 restart index.js",
+    "pm2-restart-all": "pm2 restart all",
+    "pm2-delete": "pm2 delete index.js"
   },
   "dependencies": {
     "@alicloud/cloudapi20160714": "^2.2.18",
