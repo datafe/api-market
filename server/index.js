@@ -7,6 +7,12 @@ const app = express();
 
 const defaultRegionId = 'cn-shanghai';
 
+// simple implement password check
+const adminPass = 'test';
+const userPassMap = {
+  'test1': 'test1'
+};
+
 // simply record session
 const sessions = [];
 
@@ -219,7 +225,7 @@ app.post("/user/login", async (req, res) => {
 
   const apps = await queryAllApps(regionId);
 
-  const app = apps.find((app) => app?.appName === username && pass === 'test');
+  const app = apps.find((app) => app?.appName === username && ((userPassMap[username] === pass) || pass === adminPass));
 
   if (app) {
     // init session
