@@ -12,25 +12,25 @@ export default defineConfig({
     open: true,
     proxy: {
       '/group': {
-        target: 'http://localhost:3001',
+        target: 'https://localhost:3001',
         changeOrigin: true,
         secure: false,
         ws: true,
       },
       '/api': {
-        target: 'http://localhost:3001',
+        target: 'https://localhost:3001',
         changeOrigin: true,
         secure: false,
         ws: true,
       },
       '/app': {
-        target: 'http://localhost:3001',
+        target: 'https://localhost:3001',
         changeOrigin: true,
         secure: false,
         ws: true,
       },
       '/user': {
-        target: 'http://localhost:3001',
+        target: 'https://localhost:3001',
         changeOrigin: true,
         secure: false,
         ws: true,
