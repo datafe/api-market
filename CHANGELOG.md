@@ -10,6 +10,9 @@ none
 
 ---------------------------------------------------------------------
 
+## V1.0.2
+1. Update password check implementation
+
 ## V1.0.1
 1. Support i18n
 
