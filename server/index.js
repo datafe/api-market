@@ -1,6 +1,8 @@
 const express = require('express');
 const path = require('path');
 const uuid = require('uuid');
+const https = require('https');
+const fs = require('fs');
 const OpenApiClient = require('./OpenApiClient');
 
 const app = express();
@@ -340,5 +342,17 @@ app.get('*', (req, res) => {
 //     // Handle the post for this route
 // });
 
-app.listen(3001);
-console.log('express running at http://localhost:%d', 3001);
+https
+  .createServer(
+    // Provide the private and public key to the server by reading each
+    // file's content with the readFileSync() method.
+    {
+      key: fs.readFileSync('key.pem'),
+      cert: fs.readFileSync('cert.pem'),
+    },
+    app
+  )
+  .listen(3001, () => {
+    console.log('serever is running at port 3001');
+  });
+
